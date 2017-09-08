@@ -114,7 +114,7 @@ txt += "</table>";
 document.getElementById("result").innerHTML = txt;
 })
 
-const getBeerAPIByNameAndYeast = (name,yeast) => fetch(`https://api.punkapi.com/v2/beers/?beer_name=${name}&?yeast=${yeast}`)
+const getBeerAPIByNameAndYeast = (name,yeast) => fetch(`https://api.punkapi.com/v2/beers/?beer_name=${name}&yeast=${yeast}`)
 .then(response => response.json())
 .catch(e => console.err('Fail'))
 .then(response => {
@@ -143,7 +143,7 @@ const getBeerAPIByNameAndYeast = (name,yeast) => fetch(`https://api.punkapi.com/
     document.getElementById("result").innerHTML = txt;
 })
 
-const getBeerAPIByFoodAndYeast = (food,yeast) => fetch(`https://api.punkapi.com/v2/beers/?food=${food}&?yeast=${yeast}`)
+const getBeerAPIByFoodAndYeast = (food,yeast) => fetch(`https://api.punkapi.com/v2/beers/?food=${food}&yeast=${yeast}`)
 .then(response => response.json())
 .catch(e => console.err('Fail'))
 .then(response => {
@@ -171,7 +171,7 @@ const getBeerAPIByFoodAndYeast = (food,yeast) => fetch(`https://api.punkapi.com/
     document.getElementById("result").innerHTML = txt;
 })
 
-const getBeerAPIByNameAndFood = (name,food) => fetch(`https://api.punkapi.com/v2/beers/?beer_name=${name}&?food=${food}`)
+const getBeerAPIByNameAndFood = (name,food) => fetch(`https://api.punkapi.com/v2/beers/?beer_name=${name}&food=${food}`)
 .then(response => response.json())
 .catch(e => console.err('Fail'))
 .then(response => {
@@ -247,15 +247,7 @@ const toSearch = (name,food,yeast) => {
     } else if (yeast != "") {
         getBeerAPIByYeast(yeast)
     } else {
-        let result = let txt = "<table style='width: 70%;margin: auto;' >"; 
-        txt += "<tr style='background-color: #00cccc;'>";
-        txt += "<th>" + "Beer name" + "</th>";
-        txt += "<th>" + "ABV" + "</th>";
-        txt += "<th>" + "Description" + "</th>";
-        txt += "<th>" + "Food pairing" + "</th>";
-        txt += "<th>" + "Yeast" + "</th>";
-        txt += "<th>" + "Image" + "</th>";
-        txt += "</tr>";
+        let result = document.getElementById("result").innerHTML = result
         document.getElementById("result").innerHTML = result
     }
 }
